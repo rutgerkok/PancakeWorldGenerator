@@ -4,6 +4,7 @@ package nl.rutgerkok.pancakeworldgenerator;
 import org.bukkit.Material;
 
 import nl.rutgerkok.worldgeneratorapi.BaseChunkGenerator;
+import nl.rutgerkok.worldgeneratorapi.WorldRef;
 
 /**
  * This the actual terrain generator.
@@ -16,9 +17,19 @@ public class PancakeGenerator implements BaseChunkGenerator {
      */
     private static final int CHUNK_SIZE = 16;
 
+    private final WorldRef world;
+    private final PancakeConfig config;
+
+    PancakeGenerator(WorldRef world, PancakeConfig config) {
+        this.world = world;
+        this.config = config;
+    }
+
     @Override
     public void setBlocksInChunk(GeneratingChunk chunk) {
-        chunk.getBlocksForChunk().setRegion(0, 0, 0, CHUNK_SIZE, 63, CHUNK_SIZE, Material.STONE);
+        int height = (int) config.height.get(world);
+
+        chunk.getBlocksForChunk().setRegion(0, 0, 0, CHUNK_SIZE, height, CHUNK_SIZE, Material.STONE);
     }
 
 }

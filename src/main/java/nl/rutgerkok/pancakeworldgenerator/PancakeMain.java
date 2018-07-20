@@ -15,6 +15,9 @@ import nl.rutgerkok.worldgeneratorapi.WorldRef;
  */
 public class PancakeMain extends JavaPlugin {
 
+    private PancakeConfig pancakeConfig;
+    private WorldGeneratorApi api;
+
     @Override
     public ChunkGenerator getDefaultWorldGenerator(String worldName, String id) {
         /*
@@ -23,13 +26,24 @@ public class PancakeMain extends JavaPlugin {
          * through either the bukkit.yml file, or through a third-party world management
          * plugin.
          */
-        return WorldGeneratorApi
-                .getInstance(this, 0, 2)
-                .createCustomGenerator(WorldRef.ofName(worldName), generator -> {
-                    // Code changing the world generator goes here
-                    generator.setBaseChunkGenerator(new PancakeGenerator());
-                    this.getLogger().info("Enabled the Pancake world generator for world \"" + worldName + "\"");
-                });
+        WorldRef world = WorldRef.ofName(worldName);
+        return api.createCustomGenerator(world, generator -> {
+            // Code changing the world generator goes here
+            pancakeConfig.readConfig(world, getConfig());
+            generator.setBaseChunkGenerator(new PancakeGenerator(world, pancakeConfig));
+
+            // The following two lines are new
+            pancakeConfig.writeConfig(world, getConfig());
+            saveConfig();
+
+            this.getLogger().info("Enabled the Pancake world generator for world \"" + worldName + "\"");
+        });
+    }
+
+    @Override
+    public void onEnable() {
+        api = WorldGeneratorApi.getInstance(this, 0, 2);
+        pancakeConfig = new PancakeConfig(this, api.getPropertyRegistry());
     }
 
 }
