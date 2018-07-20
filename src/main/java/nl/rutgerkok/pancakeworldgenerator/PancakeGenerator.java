@@ -18,9 +18,7 @@ public class PancakeGenerator implements BaseChunkGenerator {
 
     @Override
     public void setBlocksInChunk(GeneratingChunk chunk) {
-        chunk.getBlocksForChunk().setRegion(0, 0, 0, CHUNK_SIZE, 1, CHUNK_SIZE, Material.BEDROCK);
-        chunk.getBlocksForChunk().setRegion(0, 1, 0, CHUNK_SIZE, 4, CHUNK_SIZE, Material.DIRT);
-        chunk.getBlocksForChunk().setRegion(0, 4, 0, CHUNK_SIZE, 5, CHUNK_SIZE, Material.GRASS);
+        chunk.getBlocksForChunk().setRegion(0, 0, 0, CHUNK_SIZE, 63, CHUNK_SIZE, Material.STONE);
     }
 
 }

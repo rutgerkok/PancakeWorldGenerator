@@ -23,11 +23,13 @@ public class PancakeMain extends JavaPlugin {
          * through either the bukkit.yml file, or through a third-party world management
          * plugin.
          */
-        this.getLogger().info("Enabled the Pancake world generator for world \"" + worldName + "\"");
         return WorldGeneratorApi
-                .getInstance(this, 0, 1)
-                .buildTerrainGenerator(WorldRef.ofName(worldName), world -> new PancakeGenerator())
-                .create();
+                .getInstance(this, 0, 2)
+                .createCustomGenerator(WorldRef.ofName(worldName), generator -> {
+                    // Code changing the world generator goes here
+                    generator.setBaseChunkGenerator(new PancakeGenerator());
+                    this.getLogger().info("Enabled the Pancake world generator for world \"" + worldName + "\"");
+                });
     }
 
 }
