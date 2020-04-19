@@ -3,14 +3,14 @@ package nl.rutgerkok.pancakeworldgenerator;
 
 import org.bukkit.Material;
 
-import nl.rutgerkok.worldgeneratorapi.BaseChunkGenerator;
+import nl.rutgerkok.worldgeneratorapi.BaseTerrainGenerator;
 import nl.rutgerkok.worldgeneratorapi.WorldRef;
 
 /**
  * This the actual terrain generator.
  *
  */
-public class PancakeGenerator implements BaseChunkGenerator {
+public class PancakeGenerator implements BaseTerrainGenerator {
 
     /**
      * Width or length of a chunk. (Not the height.)
@@ -23,6 +23,11 @@ public class PancakeGenerator implements BaseChunkGenerator {
     PancakeGenerator(WorldRef world, PancakeConfig config) {
         this.world = world;
         this.config = config;
+    }
+
+    @Override
+    public int getHeight(int x, int z, HeightType type) {
+        return (int) config.height.get(world);
     }
 
     @Override
