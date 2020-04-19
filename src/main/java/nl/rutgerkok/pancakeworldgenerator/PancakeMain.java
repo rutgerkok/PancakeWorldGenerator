@@ -24,10 +24,10 @@ public class PancakeMain extends JavaPlugin {
          * plugin.
          */
         return WorldGeneratorApi
-                .getInstance(this, 0, 2)
+                .getInstance(this, 0, 4)
                 .createCustomGenerator(WorldRef.ofName(worldName), generator -> {
                     // Code changing the world generator goes here
-                    generator.setBaseChunkGenerator(new PancakeGenerator());
+                    generator.setBaseTerrainGenerator(new PancakeGenerator());
                     this.getLogger().info("Enabled the Pancake world generator for world \"" + worldName + "\"");
                 });
     }
