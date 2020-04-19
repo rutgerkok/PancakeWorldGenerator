@@ -30,7 +30,7 @@ public class PancakeMain extends JavaPlugin {
         return api.createCustomGenerator(world, generator -> {
             // Code changing the world generator goes here
             pancakeConfig.readConfig(world, getConfig());
-            generator.setBaseChunkGenerator(new PancakeGenerator(world, pancakeConfig));
+            generator.setBaseTerrainGenerator(new PancakeGenerator(world, pancakeConfig));
 
             // The following two lines are new
             pancakeConfig.writeConfig(world, getConfig());
