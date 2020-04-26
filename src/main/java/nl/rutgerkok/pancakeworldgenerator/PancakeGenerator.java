@@ -12,11 +12,6 @@ import nl.rutgerkok.worldgeneratorapi.WorldRef;
  */
 public class PancakeGenerator implements BaseTerrainGenerator {
 
-    /**
-     * Width or length of a chunk. (Not the height.)
-     */
-    private static final int CHUNK_SIZE = 16;
-
     private final WorldRef world;
     private final PancakeConfig config;
 

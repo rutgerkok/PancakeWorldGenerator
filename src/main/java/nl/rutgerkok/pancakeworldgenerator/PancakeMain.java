@@ -42,7 +42,7 @@ public class PancakeMain extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        api = WorldGeneratorApi.getInstance(this, 0, 4);
+        api = WorldGeneratorApi.getInstance(this, 0, 5);
         pancakeConfig = new PancakeConfig(this, api.getPropertyRegistry());
     }
 
