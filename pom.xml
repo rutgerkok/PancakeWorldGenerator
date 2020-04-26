@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>nl.rutgerkok</groupId>
 	<artifactId>pancakeworldgenerator</artifactId>
-	<version>1.0</version>
+	<version>1.1-SNAPSHOT</version>
 	<name>Pancake</name>
 	<description>A world generator for Minecraft Spigot that generates flat lands.</description>
 	<inceptionYear>2018</inceptionYear>
