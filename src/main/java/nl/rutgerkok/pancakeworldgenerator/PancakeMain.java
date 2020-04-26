@@ -24,7 +24,7 @@ public class PancakeMain extends JavaPlugin {
          * plugin.
          */
         return WorldGeneratorApi
-                .getInstance(this, 0, 4)
+                .getInstance(this, 0, 5)
                 .createCustomGenerator(WorldRef.ofName(worldName), generator -> {
                     // Code changing the world generator goes here
                     generator.setBaseTerrainGenerator(new PancakeGenerator());

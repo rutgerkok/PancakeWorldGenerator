@@ -11,11 +11,6 @@ import nl.rutgerkok.worldgeneratorapi.BaseTerrainGenerator;
  */
 public class PancakeGenerator implements BaseTerrainGenerator {
 
-    /**
-     * Width or length of a chunk. (Not the height.)
-     */
-    private static final int CHUNK_SIZE = 16;
-
     @Override
     public int getHeight(int x, int z, HeightType type) {
         return 63;
