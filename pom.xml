@@ -13,9 +13,9 @@
   </properties>
 	<repositories>
 		<repository>
-			<id>spigot-repo</id>
-			<url>https://hub.spigotmc.org/nexus/content/groups/public/</url>
-		</repository>
+            <id>spigotmc-snapshots</id>
+            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+        </repository>
 		<repository>
 			<id>rutger-repo</id>
 			<url>http://www.rutgerkok.nl/repo</url>
@@ -45,15 +45,9 @@
 	</build>
 	<dependencies>
 		<dependency>
-			<groupId>nl.rutgerkok</groupId>
-			<artifactId>worldgeneratorapi</artifactId>
-			<version>0.5</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
 			<groupId>org.spigotmc</groupId>
 			<artifactId>spigot-api</artifactId>
-			<version>1.15.2-R0.1-SNAPSHOT</version>
+			<version>1.17.1-R0.1-SNAPSHOT</version>
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>

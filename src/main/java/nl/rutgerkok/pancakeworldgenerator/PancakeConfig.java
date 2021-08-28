@@ -1,12 +1,8 @@
 package nl.rutgerkok.pancakeworldgenerator;
 
-import org.bukkit.NamespacedKey;
-import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.plugin.Plugin;
+import java.util.Objects;
 
-import nl.rutgerkok.worldgeneratorapi.WorldRef;
-import nl.rutgerkok.worldgeneratorapi.property.FloatProperty;
-import nl.rutgerkok.worldgeneratorapi.property.PropertyRegistry;
+import org.bukkit.configuration.file.FileConfiguration;
 
 /**
  * This class holds all the settings of the Pancake world generator. At the
@@ -14,23 +10,24 @@ import nl.rutgerkok.worldgeneratorapi.property.PropertyRegistry;
  *
  */
 public class PancakeConfig {
-    private static final String HEIGHT = "height";
+    private static final String HEIGHT_SETTING = "height";
 
-    public final FloatProperty height;
+    public int height = 70;
 
-    public PancakeConfig(Plugin plugin, PropertyRegistry registry) {
-        // The constructor initializes the default settings
-        height = registry.getFloat(new NamespacedKey(plugin, HEIGHT), 63);
+    /**
+     * World name used for the settings.
+     */
+    private final String worldName;
 
+    public PancakeConfig(String worldName) {
+        this.worldName = Objects.requireNonNull(worldName);
     }
 
-    public void readConfig(WorldRef world, FileConfiguration fileConfiguration) {
-        // This method reads all the settings for a world
-        height.setWorldDefault(world, (float) fileConfiguration.getDouble(HEIGHT, height.get(world)));
+    public void read(FileConfiguration config) {
+        this.height = config.getInt(worldName + "." + HEIGHT_SETTING, this.height);
     }
 
-    public void writeConfig(WorldRef world, FileConfiguration fileConfiguration) {
-        // This method writes all the settings for a world
-        fileConfiguration.set(HEIGHT, height.get(world));
+    public void write(FileConfiguration config) {
+        config.set(worldName + "." + HEIGHT_SETTING, this.height);
     }
 }

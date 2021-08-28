@@ -1,6 +1,6 @@
 # PancakeWorldGenerator
 
-Generates a flat Minecraft world. Requires [SpigotMC](https://www.spigotmc.org/) and [WorldGeneratorApi](https://github.com/rutgerkok/WorldGeneratorApi). This is both a sample from a tutorial, and an actually usable Spigot plugin to create a flat world.
+Generates a flat Minecraft world. Requires [SpigotMC](https://www.spigotmc.org/). This shows how to create a flat world in the Spigot Minecraft sever, that (unlike superflat worlds) still have all the resources for survival.
 
 ## Building the project
 Make sure you have downloaded this project. There's a `Clone or download` button near the top of this page. The follow one of the sub-sections below.

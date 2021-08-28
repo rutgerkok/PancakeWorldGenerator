@@ -2,5 +2,4 @@ name: "${project.name}"
 version: "${project.version}"
 main: nl.rutgerkok.pancakeworldgenerator.PancakeMain
 load: startup
-api-version: 1.15
-depend: [WorldGeneratorApi]
+api-version: 1.17
